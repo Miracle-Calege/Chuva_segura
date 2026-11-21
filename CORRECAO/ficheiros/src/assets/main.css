@@ -1,0 +1,329 @@
+/* Estilos globais — inspirados na app Meteorologia: céu de fundo, cartões de vidro, texto branco.
+   Pensados primeiro para o telemóvel. Sem fontes externas (poupa dados móveis). */
+:root {
+  --branco: #ffffff;
+  --texto: #ffffff;
+  --texto-suave: rgba(255, 255, 255, 0.72);
+  --texto-fraco: rgba(255, 255, 255, 0.55);
+  --vidro: rgba(255, 255, 255, 0.13);
+  --vidro-forte: rgba(255, 255, 255, 0.2);
+  --vidro-borda: rgba(255, 255, 255, 0.2);
+  --azul: #0b4f8a;
+  --erro: #ffb4ab;
+  --sucesso: #8ff0a4;
+
+  /* Níveis de risco (tons claros para fundo escuro) */
+  --risco-baixo: #4ade80;
+  --risco-moderado: #facc15;
+  --risco-alto: #fb923c;
+  --risco-muito-alto: #f87171;
+
+  --raio: 20px;
+  --mola: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --suave: cubic-bezier(0.22, 1, 0.36, 1);
+
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, 'Segoe UI', Roboto, Ubuntu, Arial,
+    sans-serif;
+  line-height: 1.45;
+  color: var(--texto);
+  background: #1b4f7a;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.015em;
+}
+h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+a {
+  color: #fff;
+}
+
+.contentor {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ---------- Cartões de vidro ---------- */
+.cartao {
+  background: var(--vidro);
+  border: 1px solid var(--vidro-borda);
+  border-radius: var(--raio);
+  padding: 1rem;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: 0 8px 24px rgba(0, 20, 50, 0.12);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .cartao {
+    background: rgba(20, 50, 90, 0.55);
+  }
+}
+
+/* Título pequeno em maiúsculas dos cartões, como na app Meteorologia */
+.titulo-cartao {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--texto-fraco);
+}
+
+.texto-suave {
+  color: var(--texto-suave);
+}
+
+/* ---------- Botões ---------- */
+.botao {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 46px;
+  padding: 0.6rem 1.25rem;
+  border: 0;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--azul);
+  font: inherit;
+  font-weight: 650;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 20, 50, 0.18);
+  transition:
+    transform 0.25s var(--mola),
+    box-shadow 0.25s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+/* brilho que atravessa o botão ao passar o rato */
+.botao::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--suave);
+  pointer-events: none;
+}
+.botao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 20, 50, 0.25);
+}
+.botao:hover::after {
+  transform: translateX(120%);
+}
+.botao:active {
+  transform: scale(0.96);
+  transition-duration: 0.08s;
+}
+.botao:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.botao.secundario {
+  background: var(--vidro-forte);
+  color: #fff;
+  box-shadow: none;
+  border: 1px solid var(--vidro-borda);
+}
+.botao.secundario:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+.botao.largo {
+  width: 100%;
+}
+
+/* ---------- Formulários ---------- */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.9rem;
+}
+.campo label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.campo input[type='text'],
+.campo input[type='email'],
+.campo input[type='search'] {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--vidro-borda);
+  border-radius: 14px;
+  font: inherit;
+  font-size: 16px; /* evita o zoom automático no iPhone */
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.campo input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+.campo input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15);
+}
+.campo .erro-campo {
+  color: var(--erro);
+  font-size: 0.85rem;
+  margin: 0;
+  animation: aparecer 0.25s var(--suave);
+}
+.campo input[aria-invalid='true'] {
+  border-color: var(--erro);
+}
+
+.botao:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* ---------- Grelhas ---------- */
+.grelha {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .grelha {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 920px) {
+  .grelha.tres {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Animações ---------- */
+/* Entrada em cascata: usar style="--i: índice" */
+.entra {
+  animation: subir 0.55s var(--suave) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Transição entre páginas */
+.pagina-enter-active {
+  transition:
+    opacity 0.35s var(--suave),
+    transform 0.35s var(--suave);
+}
+.pagina-leave-active {
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+.pagina-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.pagina-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+/* Esqueleto de carregamento (brilho a passar) */
+.esqueleto {
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.24) 50%, rgba(255, 255, 255, 0.1) 70%);
+  background-size: 250% 100%;
+  animation: brilho 1.3s ease-in-out infinite;
+  border-radius: var(--raio);
+}
+@keyframes brilho {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
