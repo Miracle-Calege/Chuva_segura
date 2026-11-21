@@ -1,0 +1,59 @@
+{
+  "fonte": "GDACS — Global Disaster Alert and Coordination System (https://www.gdacs.org)",
+  "licenca": "Dados públicos do GDACS; citar a fonte (ver termos em https://www.gdacs.org)",
+  "actualizadoEm": "2026-11-21T00:00:00.000Z",
+  "eventos": [
+    {
+      "id": "TC-1001256",
+      "tipo": "TC",
+      "nome": "Tropical Cyclone GEZANI-26",
+      "nivel": "Red",
+      "actual": false,
+      "paises": "Madagascar, Mozambique",
+      "inicio": "2026-02-06T00:00:00",
+      "fim": "2026-02-18T12:00:00",
+      "severidade": "Post-tropical Depression (maximum wind speed of 211 km/h)",
+      "coordenadas": [41.6, -35.63],
+      "relatorio": "https://www.gdacs.org/report.aspx?eventid=1001256&episodeid=47&eventtype=TC"
+    },
+    {
+      "id": "FL-1103735",
+      "tipo": "FL",
+      "nome": "Flood in Mozambique, South Africa, Zimbabwe",
+      "nivel": "Orange",
+      "actual": false,
+      "paises": "Mozambique, South Africa, Zimbabwe",
+      "inicio": "2026-01-19T12:00:00",
+      "fim": "2026-01-19T12:00:00",
+      "severidade": "",
+      "coordenadas": [29.3959, -23.4735],
+      "relatorio": "https://www.gdacs.org/report.aspx?eventid=1103735&episodeid=1&eventtype=FL"
+    },
+    {
+      "id": "FL-1103694",
+      "tipo": "FL",
+      "nome": "Flood in Mozambique",
+      "nivel": "Orange",
+      "actual": false,
+      "paises": "Mozambique",
+      "inicio": "2025-12-22T01:00:00",
+      "fim": "2026-01-26T01:00:00",
+      "severidade": "",
+      "coordenadas": [34.7383, -20.1562],
+      "relatorio": "https://www.gdacs.org/report.aspx?eventid=1103694&episodeid=1&eventtype=FL"
+    },
+    {
+      "id": "TC-1001154",
+      "tipo": "TC",
+      "nome": "Tropical Cyclone JUDE-25",
+      "nivel": "Red",
+      "actual": false,
+      "paises": "Mozambique, Madagascar",
+      "inicio": "2025-03-08T18:00:00",
+      "fim": "2025-03-16T00:00:00",
+      "severidade": "Post-tropical Depression (maximum wind speed of 148 km/h)",
+      "coordenadas": [51.93, -26.04],
+      "relatorio": "https://www.gdacs.org/report.aspx?eventid=1001154&episodeid=34&eventtype=TC"
+    }
+  ]
+}
