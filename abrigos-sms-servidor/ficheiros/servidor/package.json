@@ -1,0 +1,10 @@
+{
+  "name": "chuva-segura-servidor",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Funções serverless (Vercel) da Chuva Segura MZ: envio de SMS e relatos da comunidade",
+  "engines": {
+    "node": ">=20"
+  }
+}
