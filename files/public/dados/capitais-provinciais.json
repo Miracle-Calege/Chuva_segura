@@ -1,0 +1,19 @@
+{
+  "descricao": "Capitais das 10 províncias de Moçambique e Cidade de Maputo, com coordenadas.",
+  "fonte": "GeoNames (https://www.geonames.org), obtido através da Open-Meteo Geocoding API (https://geocoding-api.open-meteo.com)",
+  "licenca": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+  "recolhidoEm": "2026-11-21",
+  "cidades": [
+    { "id": 1043893, "nome": "Lichinga", "provincia": "Niassa", "latitude": -13.31278, "longitude": 35.24056 },
+    { "id": 1028918, "nome": "Pemba", "provincia": "Cabo Delgado", "latitude": -12.97395, "longitude": 40.51775 },
+    { "id": 1033356, "nome": "Nampula", "provincia": "Nampula", "latitude": -15.11646, "longitude": 39.2666 },
+    { "id": 1028434, "nome": "Quelimane", "provincia": "Zambézia", "latitude": -17.87861, "longitude": 36.88833 },
+    { "id": 1026014, "nome": "Tete", "provincia": "Tete", "latitude": -16.15639, "longitude": 33.58667 },
+    { "id": 1049261, "nome": "Chimoio", "provincia": "Manica", "latitude": -19.11639, "longitude": 33.48333 },
+    { "id": 1052373, "nome": "Beira", "provincia": "Sofala", "latitude": -19.84361, "longitude": 34.83889 },
+    { "id": 1045114, "nome": "Inhambane", "provincia": "Inhambane", "latitude": -23.865, "longitude": 35.38333 },
+    { "id": 1024552, "nome": "Xai-Xai", "provincia": "Gaza", "latitude": -25.05194, "longitude": 33.64417 },
+    { "id": 1039854, "nome": "Matola", "provincia": "Maputo (província)", "latitude": -25.96222, "longitude": 32.45889 },
+    { "id": 1040652, "nome": "Maputo", "provincia": "Cidade de Maputo", "latitude": -25.96553, "longitude": 32.58322 }
+  ]
+}
