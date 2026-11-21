@@ -5,5 +5,5 @@ import vue from '@vitejs/plugin-vue'
 // para que os ficheiros sejam encontrados no GitHub Pages.
 export default defineConfig({
   plugins: [vue()],
-  base: '/pwebii-2026-grupo5-chuva-segura/',
+  base: '/Chuva_segura/',
 })
