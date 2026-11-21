@@ -1,0 +1,17 @@
+# Dependências e build
+node_modules/
+dist/
+
+# Variáveis de ambiente (NUNCA fazer commit)
+.env
+.env.*
+!.env.example
+
+# Logs e sistema
+npm-debug.log*
+*.log
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
